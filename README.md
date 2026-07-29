@@ -1,5 +1,7 @@
 # YourTracks (for Windows)
 
+**[English](README_EN.md)**
+
 Программа поможет быстро и легко навести порядок в вашей музыкальной коллекции. Теперь не нужно тратить время на рутину, вручную переписывая метаданные для каждого файла.
 
 Программа позволяет:
@@ -54,7 +56,7 @@ dotnet run --project src/MetadataEditor.App/MetadataEditor.App.csproj
 dotnet test MetadataEditor.sln
 ```
 
-## Публикация (Release)
+## Release
 
 Framework-dependent сборка (на целевой машине нужен .NET 8 Desktop Runtime):
 
