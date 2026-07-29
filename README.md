@@ -58,27 +58,18 @@ dotnet test MetadataEditor.sln
 
 ## Release
 
-Framework-dependent сборка (на целевой машине нужен .NET 8 Desktop Runtime):
-
-```powershell
-dotnet publish src/MetadataEditor.App/MetadataEditor.App.csproj `
-  -c Release `
-  -r win-x64 `
-  --self-contained false `
-  -o publish/win-x64
-```
-
-Self-contained сборка (runtime включён в дистрибутив):
+Self-contained сборка (runtime внутри, на машине не нужен отдельный .NET Desktop Runtime):
 
 ```powershell
 dotnet publish src/MetadataEditor.App/MetadataEditor.App.csproj `
   -c Release `
   -r win-x64 `
   --self-contained true `
-  -o publish/win-x64-selfcontained
+  -o publish/YourTracks-v0.1-win-x64-selfcontained
 ```
 
-Исполняемый файл — `YourTracks.exe` в папке вывода.
+Запакуйте **всё содержимое** этой папки в zip — одного `YourTracks.exe` недостаточно.  
+Готовый установщик (`YourTracks-Setup-v0.1.exe`) выкладывается в [Releases](https://github.com/Evgeniy-51/YourTracks/releases).
 
 ## Структура проекта
 

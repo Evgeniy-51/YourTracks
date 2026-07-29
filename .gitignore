@@ -19,6 +19,7 @@ coverage/
 
 ## Publish / packages
 publish/
+installer/
 *.nupkg
 *.snupkg
 
