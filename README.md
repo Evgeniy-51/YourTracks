@@ -20,9 +20,9 @@
 
 ## Скриншоты
 
-![pic1](docs/screenshots/yourtracks_pic1.png)
+![Главное окно](docs/screenshots/yourtracks_pic1.jpg)
 
-![pic2](docs/screenshots/yourtracks_pic2.png)
+![Редактирование метаданных](docs/screenshots/yourtracks_pic2.jpg)
 
 ## Возможности
 
