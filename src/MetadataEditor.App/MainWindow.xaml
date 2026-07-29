@@ -1,0 +1,554 @@
+﻿<Window x:Class="MetadataEditor.App.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:converters="clr-namespace:MetadataEditor.App.Converters"
+        xmlns:loc="clr-namespace:MetadataEditor.App.Localization"
+        xmlns:app="clr-namespace:MetadataEditor.App"
+        mc:Ignorable="d"
+        Title="{x:Static app:AppInfo.WindowTitle}"
+        Icon="pack://application:,,,/Assets/yourtracks.png"
+        Width="1280"
+        Height="760"
+        MinWidth="1120"
+        MinHeight="600"
+        Background="{StaticResource Brush.PageBackground}"
+        Closing="MainWindow_Closing">
+    <Window.Resources>
+        <converters:CoverArtConverter x:Key="CoverArtConverter" />
+        <converters:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" />
+        <converters:EnumEqualsConverter x:Key="EnumEqualsConverter" />
+        <converters:NullableUIntToStringConverter x:Key="NullableUIntToStringConverter" />
+    </Window.Resources>
+
+    <Grid Margin="16">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <Border Grid.Row="0"
+                Margin="0,0,0,12"
+                Style="{StaticResource CardBorder}">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+
+                <!-- Width: max DesiredSize @ MessageFontSize 16 -->
+                <Button Grid.Column="0"
+                        Width="144"
+                        Style="{StaticResource ToolbarButton}"
+                        Command="{Binding OpenFolderCommand}"
+                        Content="{loc:Loc Key=OpenFolder}" />
+                <Button Grid.Column="1"
+                        Width="144"
+                        Style="{StaticResource ToolbarButton}"
+                        Command="{Binding OpenFilesCommand}"
+                        Content="{loc:Loc Key=OpenFiles}" />
+                <TextBox Grid.Column="2"
+                         Style="{StaticResource ToolbarPathTextBox}"
+                         IsReadOnly="True"
+                         Text="{Binding FolderPath}" />
+                <Button Grid.Column="3"
+                        Width="108"
+                        Style="{StaticResource ToolbarButton}"
+                        Command="{Binding ResetAllCommand}"
+                        Content="{loc:Loc Key=Undo}"
+                        ToolTip="{loc:Loc Key=UndoTooltip}" />
+                <Button Grid.Column="4"
+                        Width="108"
+                        Style="{StaticResource ToolbarButton}"
+                        Click="Exit_Click"
+                        Content="{loc:Loc Key=Exit}" />
+            </Grid>
+        </Border>
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="3*" MinWidth="500" />
+                <ColumnDefinition Width="12" />
+                <ColumnDefinition Width="2*" MinWidth="520" />
+            </Grid.ColumnDefinitions>
+
+            <Border Grid.Column="0"
+                    Style="{StaticResource CardBorder}">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+
+                    <StackPanel Margin="0,0,0,10" Orientation="Horizontal">
+                        <Button Width="124"
+                                Style="{StaticResource ToolbarButton}"
+                                Command="{Binding SelectAllCommand}"
+                                Content="{loc:Loc Key=SelectAll}" />
+                        <Button Width="124"
+                                Style="{StaticResource ToolbarButton}"
+                                Command="{Binding ClearSelectionCommand}"
+                                Content="{loc:Loc Key=ClearSelection}" />
+                    </StackPanel>
+
+                    <Border Grid.Row="1"
+                            Style="{StaticResource RoundedDataGridHost}"
+                            SizeChanged="FilesGridHost_SizeChanged">
+                        <DataGrid x:Name="FilesDataGrid"
+                                  AllowDrop="True"
+                                  AutoGenerateColumns="False"
+                                  BorderThickness="0"
+                                  CanUserAddRows="False"
+                                  Drop="FilesDataGrid_Drop"
+                                  EnableRowVirtualization="True"
+                                  ItemsSource="{Binding Files}"
+                                  PreviewMouseLeftButtonDown="FilesDataGrid_PreviewMouseLeftButtonDown"
+                                  PreviewMouseMove="FilesDataGrid_PreviewMouseMove"
+                                  PreviewMouseRightButtonDown="FilesDataGrid_PreviewMouseRightButtonDown"
+                                  ContextMenuOpening="FilesDataGrid_ContextMenuOpening"
+                                  SelectedItem="{Binding SelectedFile, Mode=TwoWay}"
+                                  SelectionMode="Single"
+                                  ToolTip="{loc:Loc Key=DragReorderTooltip}">
+                            <DataGrid.InputBindings>
+                                <KeyBinding Key="Delete" Command="{Binding RemoveFromListCommand}" />
+                            </DataGrid.InputBindings>
+                            <DataGrid.ContextMenu>
+                                <ContextMenu>
+                                    <MenuItem Header="{loc:Loc Key=MoveUp}"
+                                              Command="{Binding PlacementTarget.DataContext.MoveSelectedUpCommand, RelativeSource={RelativeSource AncestorType=ContextMenu}}" />
+                                    <MenuItem Header="{loc:Loc Key=MoveDown}"
+                                              Command="{Binding PlacementTarget.DataContext.MoveSelectedDownCommand, RelativeSource={RelativeSource AncestorType=ContextMenu}}" />
+                                    <MenuItem Header="{loc:Loc Key=MoveToStart}"
+                                              Command="{Binding PlacementTarget.DataContext.MoveSelectedToStartCommand, RelativeSource={RelativeSource AncestorType=ContextMenu}}" />
+                                    <MenuItem Header="{loc:Loc Key=MoveToEnd}"
+                                              Command="{Binding PlacementTarget.DataContext.MoveSelectedToEndCommand, RelativeSource={RelativeSource AncestorType=ContextMenu}}" />
+                                    <Separator />
+                                    <MenuItem Header="{loc:Loc Key=ResetChanges}"
+                                              Command="{Binding PlacementTarget.DataContext.ResetSelectedFileCommand, RelativeSource={RelativeSource AncestorType=ContextMenu}}" />
+                                    <MenuItem Header="{loc:Loc Key=RemoveFromList}"
+                                              Command="{Binding PlacementTarget.DataContext.RemoveFromListCommand, RelativeSource={RelativeSource AncestorType=ContextMenu}}" />
+                                </ContextMenu>
+                            </DataGrid.ContextMenu>
+                            <DataGrid.Columns>
+                                <DataGridCheckBoxColumn Width="40"
+                                                        Binding="{Binding IsSelected, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                                    <DataGridCheckBoxColumn.ElementStyle>
+                                        <Style TargetType="CheckBox" BasedOn="{StaticResource {x:Type CheckBox}}">
+                                            <Setter Property="HorizontalAlignment" Value="Center" />
+                                            <Setter Property="VerticalAlignment" Value="Center" />
+                                            <Setter Property="Margin" Value="0" />
+                                        </Style>
+                                    </DataGridCheckBoxColumn.ElementStyle>
+                                    <DataGridCheckBoxColumn.EditingElementStyle>
+                                        <Style TargetType="CheckBox" BasedOn="{StaticResource {x:Type CheckBox}}">
+                                            <Setter Property="HorizontalAlignment" Value="Center" />
+                                            <Setter Property="VerticalAlignment" Value="Center" />
+                                            <Setter Property="Margin" Value="0" />
+                                        </Style>
+                                    </DataGridCheckBoxColumn.EditingElementStyle>
+                                </DataGridCheckBoxColumn>
+                                <DataGridTextColumn Width="2*"
+                                                    Header="{loc:Loc Key=ColFile}"
+                                                    IsReadOnly="True"
+                                                    Binding="{Binding FileName}" />
+                                <DataGridTextColumn Width="*"
+                                                    Header="{loc:Loc Key=ColArtist}"
+                                                    IsReadOnly="True"
+                                                    Binding="{Binding Artist}" />
+                                <DataGridTextColumn Width="*"
+                                                    Header="{loc:Loc Key=ColTitle}"
+                                                    IsReadOnly="True"
+                                                    Binding="{Binding Title}" />
+                                <DataGridTextColumn Width="70"
+                                                    Header="{loc:Loc Key=ColTrackNumber}"
+                                                    IsReadOnly="True"
+                                                    Binding="{Binding TrackNumber}" />
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </Border>
+                </Grid>
+            </Border>
+
+            <Border Grid.Column="2"
+                    Padding="12"
+                    Style="{StaticResource SidePanelCard}">
+                <TabControl IsEnabled="{Binding HasFiles}">
+                    <TabItem Header="{loc:Loc Key=TabMetadata}" Style="{StaticResource SidePanelTabItem}">
+                        <Border Style="{StaticResource SidePanelTabContent}">
+                            <ScrollViewer Style="{StaticResource SidePanelTabScroll}">
+                                <StackPanel Style="{StaticResource SidePanelTabBody}"
+                                            DataContext="{Binding SelectedFile}">
+                                    <TextBlock Style="{StaticResource FieldLabel}" Text="{loc:Loc Key=FileName}" />
+                                    <TextBox Margin="0,2,0,0"
+                                             Text="{Binding EditedFileName, UpdateSourceTrigger=PropertyChanged}" />
+                                    <TextBlock Margin="0,4,0,0"
+                                               Text="{Binding FileNameError}">
+                                        <TextBlock.Style>
+                                            <Style TargetType="TextBlock" BasedOn="{StaticResource DangerText}">
+                                                <Setter Property="Visibility" Value="Visible" />
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding FileNameError}" Value="{x:Null}">
+                                                        <Setter Property="Visibility" Value="Collapsed" />
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding FileNameError}" Value="">
+                                                        <Setter Property="Visibility" Value="Collapsed" />
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </TextBlock.Style>
+                                    </TextBlock>
+
+                                    <TextBlock Margin="0,16,0,0"
+                                               Style="{StaticResource FieldLabel}"
+                                               Text="{loc:Loc Key=Artist}" />
+                                    <TextBox Text="{Binding Artist, UpdateSourceTrigger=PropertyChanged}" />
+
+                                    <TextBlock Style="{StaticResource FieldLabel}" Text="{loc:Loc Key=TrackTitle}" />
+                                    <TextBox Text="{Binding Title, UpdateSourceTrigger=PropertyChanged}" />
+
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="12" />
+                                            <ColumnDefinition Width="*" />
+                                        </Grid.ColumnDefinitions>
+                                        <StackPanel Grid.Column="0">
+                                            <TextBlock Style="{StaticResource FieldLabel}" Text="{loc:Loc Key=TrackNumber}" />
+                                            <TextBox Text="{Binding TrackNumber, UpdateSourceTrigger=PropertyChanged, ValidatesOnExceptions=True, Converter={StaticResource NullableUIntToStringConverter}}" />
+                                        </StackPanel>
+                                        <StackPanel Grid.Column="2">
+                                            <TextBlock Style="{StaticResource FieldLabel}" Text="{loc:Loc Key=Year}" />
+                                            <TextBox Text="{Binding Year, UpdateSourceTrigger=PropertyChanged, ValidatesOnExceptions=True, Converter={StaticResource NullableUIntToStringConverter}}" />
+                                        </StackPanel>
+                                    </Grid>
+
+                                    <TextBlock Style="{StaticResource FieldLabel}" Text="{loc:Loc Key=Album}" />
+                                    <TextBox Text="{Binding Album, UpdateSourceTrigger=PropertyChanged}" />
+
+                                    <Border Style="{StaticResource CoverBlock}">
+                                        <StackPanel>
+                                            <TextBlock Margin="0,0,0,8"
+                                                       Style="{StaticResource FieldLabel}"
+                                                       Text="{loc:Loc Key=Cover}" />
+                                            <StackPanel HorizontalAlignment="Left">
+                                                <Border Width="220"
+                                                        Height="220"
+                                                        Background="{StaticResource Brush.SurfaceMuted}"
+                                                        BorderBrush="{StaticResource Brush.Border}"
+                                                        BorderThickness="1"
+                                                        CornerRadius="8">
+                                                    <Image Source="{Binding Cover, Converter={StaticResource CoverArtConverter}}"
+                                                           Stretch="Uniform" />
+                                                </Border>
+                                                <StackPanel Margin="0,10,0,0"
+                                                            HorizontalAlignment="Center"
+                                                            Orientation="Horizontal">
+                                                    <Button Style="{StaticResource ToolbarButton}"
+                                                            Command="{Binding DataContext.ReplaceCoverCommand, RelativeSource={RelativeSource AncestorType=Window}}"
+                                                            Content="{loc:Loc Key=ReplaceCover}" />
+                                                    <Button Margin="0"
+                                                            Style="{StaticResource ToolbarButton}"
+                                                            Command="{Binding DataContext.RemoveCoverCommand, RelativeSource={RelativeSource AncestorType=Window}}"
+                                                            Content="{loc:Loc Key=RemoveCover}" />
+                                                </StackPanel>
+                                            </StackPanel>
+                                        </StackPanel>
+                                    </Border>
+                                </StackPanel>
+                            </ScrollViewer>
+                        </Border>
+                    </TabItem>
+
+                    <TabItem Header="{loc:Loc Key=TabAutomation}" Style="{StaticResource SidePanelTabItem}">
+                        <Border Style="{StaticResource SidePanelTabContent}">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+
+                                <ScrollViewer Grid.Row="0"
+                                              Style="{StaticResource SidePanelTabScroll}">
+                                    <StackPanel Style="{StaticResource SidePanelTabBody}">
+                                    <TextBlock Margin="0,0,0,16"
+                                               FontWeight="Normal"
+                                               Style="{StaticResource MutedText}"
+                                               Text="{loc:Loc Key=AutomationHelp}" />
+
+                                    <TextBlock Margin="0,0,0,8"
+                                               Style="{StaticResource FieldSectionLabel}"
+                                               Text="{loc:Loc Key=SectionFileName}" />
+
+                                    <CheckBox Content="{loc:Loc Key=RenameByTemplate}"
+                                              IsChecked="{Binding ApplyFilenameRename}" />
+                                    <ComboBox Margin="24,0,0,8"
+                                              DisplayMemberPath="Label"
+                                              IsEnabled="{Binding ApplyFilenameRename}"
+                                              ItemsSource="{Binding FilenameTemplateOptions}"
+                                              SelectedItem="{Binding SelectedFilenameTemplateOption}" />
+
+                                    <CheckBox Content="{loc:Loc Key=NumberingPrefix}"
+                                              IsChecked="{Binding ApplyTrackNumbering}" />
+                                    <StackPanel Margin="24,0,0,12"
+                                                IsEnabled="{Binding ApplyTrackNumbering}">
+                                        <ComboBox Margin="0,0,0,8"
+                                                  DisplayMemberPath="Label"
+                                                  ItemsSource="{Binding FilenameNumberFormatOptions}"
+                                                  SelectedItem="{Binding SelectedFilenameNumberFormatOption}" />
+                                        <RadioButton GroupName="FilenameNumberingSource"
+                                                     Content="{loc:Loc Key=NumberingByListOrder}"
+                                                     IsChecked="{Binding FilenameNumberingSource, Converter={StaticResource EnumEqualsConverter}, ConverterParameter=ListOrder}" />
+                                        <RadioButton Margin="0,2,0,0"
+                                                     GroupName="FilenameNumberingSource"
+                                                     Content="{loc:Loc Key=NumberFromTrackField}"
+                                                     IsChecked="{Binding FilenameNumberingSource, Converter={StaticResource EnumEqualsConverter}, ConverterParameter=TrackField}" />
+                                    </StackPanel>
+
+                                    <StackPanel Margin="0,0,0,16"
+                                                Visibility="{Binding ShowRenamePreviewSection, Converter={StaticResource BoolToVisibilityConverter}}">
+                                        <TextBlock Margin="0,0,0,8"
+                                                   Style="{StaticResource FieldLabel}"
+                                                   Text="{loc:Loc Key=Preview}" />
+                                        <DataGrid MinHeight="72"
+                                                  MaxHeight="200"
+                                                  AutoGenerateColumns="False"
+                                                  CanUserAddRows="False"
+                                                  EnableRowVirtualization="True"
+                                                  HeadersVisibility="Column"
+                                                  IsReadOnly="True"
+                                                  ItemsSource="{Binding RenamePreviewFiles}"
+                                                  SelectionMode="Single">
+                                            <DataGrid.Columns>
+                                                <DataGridTextColumn Width="*"
+                                                                    Header="{loc:Loc Key=ColNewFileName}"
+                                                                    Binding="{Binding ProposedFileName}" />
+                                            </DataGrid.Columns>
+                                        </DataGrid>
+                                        <TextBlock Padding="0,4,0,0"
+                                                   Style="{StaticResource MutedText}"
+                                                   Text="{loc:Loc Key=PreviewPlaceholder}"
+                                                   Visibility="{Binding ShowRenamePreviewPlaceholder, Converter={StaticResource BoolToVisibilityConverter}}" />
+                                    </StackPanel>
+
+                                    <Separator Margin="0,0,0,16" />
+
+                                    <TextBlock Margin="0,0,0,8"
+                                               Style="{StaticResource FieldSectionLabel}"
+                                               Text="{loc:Loc Key=SectionMetadata}" />
+
+                                    <CheckBox Content="{loc:Loc Key=Artist}"
+                                              IsChecked="{Binding ApplyArtist}" />
+                                    <TextBox Margin="24,0,0,12"
+                                             IsEnabled="{Binding ApplyArtist}"
+                                             Text="{Binding BatchArtist, UpdateSourceTrigger=PropertyChanged}" />
+
+                                    <CheckBox Content="{loc:Loc Key=TrackTitle}"
+                                              IsChecked="{Binding ApplyTitle}" />
+                                    <TextBox Margin="24,0,0,12"
+                                             IsEnabled="{Binding ApplyTitle}"
+                                             Text="{Binding BatchTitle, UpdateSourceTrigger=PropertyChanged}" />
+
+                                    <CheckBox Content="{loc:Loc Key=Album}"
+                                              IsChecked="{Binding ApplyAlbum}" />
+                                    <TextBox Margin="24,0,0,12"
+                                             IsEnabled="{Binding ApplyAlbum}"
+                                             Text="{Binding BatchAlbum, UpdateSourceTrigger=PropertyChanged}" />
+
+                                    <CheckBox Content="{loc:Loc Key=Year}"
+                                              IsChecked="{Binding ApplyYear}" />
+                                    <TextBox Margin="24,0,0,12"
+                                             IsEnabled="{Binding ApplyYear}"
+                                             Text="{Binding BatchYear, UpdateSourceTrigger=PropertyChanged, ValidatesOnExceptions=True}" />
+
+                                    <CheckBox Margin="0,0,0,12"
+                                              Content="{loc:Loc Key=ClearTrackNumber}"
+                                              IsChecked="{Binding ApplyClearTrackNumber}" />
+
+                                    <Separator Margin="0,0,0,16" />
+
+                                    <TextBlock Margin="0,0,0,8"
+                                               Style="{StaticResource FieldSectionLabel}"
+                                               Text="{loc:Loc Key=SectionCover}" />
+
+                                    <CheckBox Content="{loc:Loc Key=SetCoverArt}"
+                                              IsChecked="{Binding ApplySetCover}" />
+                                    <StackPanel Margin="24,0,0,12"
+                                                IsEnabled="{Binding ApplySetCover}">
+                                        <Button HorizontalAlignment="Left"
+                                                Style="{StaticResource ToolbarButton}"
+                                                Command="{Binding SelectBatchCoverCommand}"
+                                                Content="{loc:Loc Key=SelectCoverFile}" />
+                                        <TextBlock Margin="0,8,0,0"
+                                                   Style="{StaticResource MutedText}"
+                                                   Text="{Binding BatchCoverFileName}"
+                                                   TextTrimming="CharacterEllipsis"
+                                                   Visibility="{Binding HasBatchCover, Converter={StaticResource BoolToVisibilityConverter}}" />
+                                        <Border Margin="0,8,0,0"
+                                                Width="72"
+                                                Height="72"
+                                                Background="Transparent"
+                                                BorderBrush="{StaticResource Brush.Border}"
+                                                BorderThickness="1"
+                                                CornerRadius="6"
+                                                Visibility="{Binding HasBatchCover, Converter={StaticResource BoolToVisibilityConverter}}">
+                                            <Image Margin="4"
+                                                   Source="{Binding BatchCover, Converter={StaticResource CoverArtConverter}}"
+                                                   Stretch="Uniform" />
+                                        </Border>
+                                    </StackPanel>
+
+                                    <CheckBox Margin="0,0,0,12"
+                                              Content="{loc:Loc Key=RemoveCoverArt}"
+                                              IsChecked="{Binding ApplyRemoveCover}" />
+                                    </StackPanel>
+                                </ScrollViewer>
+
+                                <StackPanel Grid.Row="1"
+                                            Margin="0,0,12,0">
+                                    <Separator Margin="0,8,0,8" />
+                                    <DockPanel LastChildFill="False">
+                                        <Button DockPanel.Dock="Left"
+                                                MinWidth="110"
+                                                Style="{StaticResource PrimaryButton}"
+                                                Command="{Binding ApplyAutomationCommand}"
+                                                Content="{loc:Loc Key=Apply}" />
+                                        <StackPanel DockPanel.Dock="Left"
+                                                    Margin="24,0,0,0"
+                                                    VerticalAlignment="Center">
+                                            <RadioButton GroupName="BatchApplyScope"
+                                                         Margin="0"
+                                                         Content="{loc:Loc Key=ApplyToSelectedTracks}"
+                                                         IsChecked="{Binding BatchApplyScope, Converter={StaticResource EnumEqualsConverter}, ConverterParameter=Selected}" />
+                                            <RadioButton Margin="0,2,0,0"
+                                                         GroupName="BatchApplyScope"
+                                                         Content="{loc:Loc Key=ApplyToAllTracks}"
+                                                         IsChecked="{Binding BatchApplyScope, Converter={StaticResource EnumEqualsConverter}, ConverterParameter=AllInFolder}" />
+                                        </StackPanel>
+                                    </DockPanel>
+                                </StackPanel>
+                            </Grid>
+                        </Border>
+                    </TabItem>
+
+                    <TabItem Header="{loc:Loc Key=TabPlaylist}" Style="{StaticResource SidePanelTabItem}">
+                        <Border Style="{StaticResource SidePanelTabContent}">
+                            <ScrollViewer Style="{StaticResource SidePanelTabScroll}">
+                                <StackPanel Style="{StaticResource SidePanelTabBody}">
+                                    <TextBlock Margin="0,0,0,16"
+                                               FontWeight="Normal"
+                                               Style="{StaticResource MutedText}"
+                                               Text="{loc:Loc Key=PlaylistHelp}" />
+
+                                    <StackPanel Margin="0,0,0,16" Orientation="Horizontal">
+                                        <RadioButton GroupName="PlaylistFormat"
+                                                     Margin="0,0,16,0"
+                                                     Content="M3U8 (UTF-8)"
+                                                     IsChecked="{Binding SelectedPlaylistFormat, Converter={StaticResource EnumEqualsConverter}, ConverterParameter=M3U8}" />
+                                        <RadioButton GroupName="PlaylistFormat"
+                                                     Margin="0,0,16,0"
+                                                     Content="M3U"
+                                                     IsChecked="{Binding SelectedPlaylistFormat, Converter={StaticResource EnumEqualsConverter}, ConverterParameter=M3U}" />
+                                        <RadioButton GroupName="PlaylistFormat"
+                                                     Margin="0"
+                                                     Content="PLS"
+                                                     IsChecked="{Binding SelectedPlaylistFormat, Converter={StaticResource EnumEqualsConverter}, ConverterParameter=Pls}" />
+                                    </StackPanel>
+
+                                    <StackPanel Margin="0,0,0,21">
+                                        <CheckBox Margin="0,0,0,4"
+                                                  Content="{loc:Loc Key=AbsolutePaths}"
+                                                  IsChecked="{Binding PlaylistUseAbsolutePaths}" />
+                                        <TextBlock Margin="24,0,0,0"
+                                                   Style="{StaticResource MutedText}"
+                                                   Text="{loc:Loc Key=AbsolutePathsHelp}" />
+                                    </StackPanel>
+
+                                    <Button HorizontalAlignment="Left"
+                                            Style="{StaticResource PrimaryButton}"
+                                            Command="{Binding SavePlaylistCommand}"
+                                            Content="{loc:Loc Key=SavePlaylist}" />
+                                </StackPanel>
+                            </ScrollViewer>
+                        </Border>
+                    </TabItem>
+                </TabControl>
+            </Border>
+        </Grid>
+
+        <Grid Grid.Row="2" Margin="0,12,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="3*" MinWidth="500" />
+                <ColumnDefinition Width="12" />
+                <ColumnDefinition Width="2*" MinWidth="520" />
+            </Grid.ColumnDefinitions>
+
+            <Border Grid.Column="0"
+                    Style="{StaticResource CardBorder}"
+                    Padding="12,8">
+                <DockPanel LastChildFill="True">
+                    <Button DockPanel.Dock="Right"
+                            Width="48"
+                            MinWidth="48"
+                            Padding="8,5"
+                            Margin="12,0,0,0"
+                            VerticalAlignment="Center"
+                            Style="{StaticResource ToolbarButton}"
+                            Click="SwitchLanguage_Click"
+                            Content="{Binding LanguageSwitchLabel}"
+                            ToolTip="{Binding LanguageSwitchTooltip}" />
+                    <StackPanel VerticalAlignment="Center">
+                        <TextBlock Foreground="{StaticResource Brush.Text}"
+                                   Text="{Binding StatusText}" />
+                        <TextBlock Style="{StaticResource DangerText}"
+                                   Text="{Binding LastError}"
+                                   TextTrimming="CharacterEllipsis" />
+                    </StackPanel>
+                </DockPanel>
+            </Border>
+
+            <Border Grid.Column="2"
+                    Style="{StaticResource CardBorder}"
+                    Padding="12,8">
+                <DockPanel LastChildFill="True">
+                    <Button DockPanel.Dock="Right"
+                            Width="108"
+                            Margin="12,0,0,0"
+                            Style="{StaticResource PrimaryButton}"
+                            Command="{Binding SaveCommand}"
+                            Content="{loc:Loc Key=Save}" />
+                    <TextBlock VerticalAlignment="Center"
+                               Style="{StaticResource WarningText}"
+                               Visibility="{Binding HasUnsavedChanges, Converter={StaticResource BoolToVisibilityConverter}}">
+                        <Run Text="{loc:Loc Key=UnsavedChangesPrefix}" />
+                        <Run Text="{Binding UnsavedChangesCount, Mode=OneWay}" />
+                    </TextBlock>
+                    <TextBlock VerticalAlignment="Center"
+                               Style="{StaticResource MutedText}"
+                               Text="{loc:Loc Key=NoUnsavedChanges}"
+                               Visibility="{Binding HasUnsavedChanges, Converter={StaticResource BoolToVisibilityConverter}, ConverterParameter=Inverse}" />
+                </DockPanel>
+            </Border>
+        </Grid>
+
+        <Border Grid.RowSpan="3"
+                Style="{StaticResource LoadingOverlayStyle}">
+            <StackPanel HorizontalAlignment="Center"
+                        VerticalAlignment="Center">
+                <Ellipse Style="{StaticResource LoadingSpinnerStyle}" />
+                <TextBlock Margin="0,20,0,0"
+                           HorizontalAlignment="Center"
+                           FontSize="15"
+                           Foreground="{StaticResource Brush.Text}"
+                           Text="{Binding StatusText}"
+                           TextAlignment="Center"
+                           TextWrapping="Wrap"
+                           MaxWidth="320" />
+            </StackPanel>
+        </Border>
+    </Grid>
+</Window>

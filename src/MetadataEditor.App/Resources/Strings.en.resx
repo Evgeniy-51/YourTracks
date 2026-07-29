@@ -1,0 +1,497 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="OpenFolder" xml:space="preserve">
+    <value>Open folder</value>
+  </data>
+  <data name="OpenFiles" xml:space="preserve">
+    <value>Open files</value>
+  </data>
+  <data name="Undo" xml:space="preserve">
+    <value>Undo</value>
+  </data>
+  <data name="Exit" xml:space="preserve">
+    <value>Exit</value>
+  </data>
+  <data name="UndoTooltip" xml:space="preserve">
+    <value>Reset all unsaved changes in all files in the list</value>
+  </data>
+  <data name="SelectAll" xml:space="preserve">
+    <value>Select all</value>
+  </data>
+  <data name="ClearSelection" xml:space="preserve">
+    <value>Clear selection</value>
+  </data>
+  <data name="DragReorderTooltip" xml:space="preserve">
+    <value>Drag a row to change the file order</value>
+  </data>
+  <data name="MoveUp" xml:space="preserve">
+    <value>Move up</value>
+  </data>
+  <data name="MoveDown" xml:space="preserve">
+    <value>Move down</value>
+  </data>
+  <data name="MoveToStart" xml:space="preserve">
+    <value>Move to start</value>
+  </data>
+  <data name="MoveToEnd" xml:space="preserve">
+    <value>Move to end</value>
+  </data>
+  <data name="ResetChanges" xml:space="preserve">
+    <value>Reset changes</value>
+  </data>
+  <data name="RemoveFromList" xml:space="preserve">
+    <value>Remove from list</value>
+  </data>
+  <data name="ColFile" xml:space="preserve">
+    <value>File</value>
+  </data>
+  <data name="ColArtist" xml:space="preserve">
+    <value>Artist</value>
+  </data>
+  <data name="ColTitle" xml:space="preserve">
+    <value>Title</value>
+  </data>
+  <data name="ColTrackNumber" xml:space="preserve">
+    <value>#</value>
+  </data>
+  <data name="TabMetadata" xml:space="preserve">
+    <value>Metadata</value>
+  </data>
+  <data name="TabAutomation" xml:space="preserve">
+    <value>Automation</value>
+  </data>
+  <data name="TabPlaylist" xml:space="preserve">
+    <value>Playlist</value>
+  </data>
+  <data name="FileName" xml:space="preserve">
+    <value>File name</value>
+  </data>
+  <data name="Artist" xml:space="preserve">
+    <value>Artist</value>
+  </data>
+  <data name="TrackTitle" xml:space="preserve">
+    <value>Track title</value>
+  </data>
+  <data name="TrackNumber" xml:space="preserve">
+    <value>Track number</value>
+  </data>
+  <data name="Year" xml:space="preserve">
+    <value>Year</value>
+  </data>
+  <data name="ClearTrackNumber" xml:space="preserve">
+    <value>Clear "Track number" field</value>
+  </data>
+  <data name="Album" xml:space="preserve">
+    <value>Album</value>
+  </data>
+  <data name="Cover" xml:space="preserve">
+    <value>Cover</value>
+  </data>
+  <data name="ReplaceCover" xml:space="preserve">
+    <value>Replace</value>
+  </data>
+  <data name="RemoveCover" xml:space="preserve">
+    <value>Remove</value>
+  </data>
+  <data name="AutomationTitle" xml:space="preserve">
+    <value>Automation</value>
+  </data>
+  <data name="AutomationHelp" xml:space="preserve">
+    <value>Select the tracks and fields you want to change.</value>
+  </data>
+  <data name="SectionFileName" xml:space="preserve">
+    <value>File name</value>
+  </data>
+  <data name="RenameByTemplate" xml:space="preserve">
+    <value>Rename files using a template</value>
+  </data>
+  <data name="NumberingPrefix" xml:space="preserve">
+    <value>Add (or change) numbering as a filename prefix</value>
+  </data>
+  <data name="NumberFromTrackField" xml:space="preserve">
+    <value>Numbering by track number field</value>
+  </data>
+  <data name="NumberingByListOrder" xml:space="preserve">
+    <value>Numbering by list order</value>
+  </data>
+  <data name="Preview" xml:space="preserve">
+    <value>Preview</value>
+  </data>
+  <data name="ColNewFileName" xml:space="preserve">
+    <value>New name</value>
+  </data>
+  <data name="PreviewPlaceholder" xml:space="preserve">
+    <value>Select files in the table or choose All tracks in folder.</value>
+  </data>
+  <data name="SectionMetadata" xml:space="preserve">
+    <value>Metadata</value>
+  </data>
+  <data name="SectionCover" xml:space="preserve">
+    <value>Cover art</value>
+  </data>
+  <data name="SetCoverArt" xml:space="preserve">
+    <value>Set cover art</value>
+  </data>
+  <data name="SelectCoverFile" xml:space="preserve">
+    <value>Select file…</value>
+  </data>
+  <data name="RemoveCoverArt" xml:space="preserve">
+    <value>Remove cover art</value>
+  </data>
+  <data name="Apply" xml:space="preserve">
+    <value>Apply</value>
+  </data>
+  <data name="ApplyToSelectedTracks" xml:space="preserve">
+    <value>Selected tracks</value>
+  </data>
+  <data name="ApplyToAllTracks" xml:space="preserve">
+    <value>All tracks in folder</value>
+  </data>
+  <data name="PlaylistTitle" xml:space="preserve">
+    <value>Playlist</value>
+  </data>
+  <data name="PlaylistHelp" xml:space="preserve">
+    <value>Set the desired track order in the list and save the playlist.</value>
+  </data>
+  <data name="AbsolutePaths" xml:space="preserve">
+    <value>Absolute paths</value>
+  </data>
+  <data name="AbsolutePathsHelp" xml:space="preserve">
+    <value>Without this option, paths are relative to the playlist folder. If a file is outside that folder, an absolute path is saved.</value>
+  </data>
+  <data name="SavePlaylist" xml:space="preserve">
+    <value>Save playlist…</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="UnsavedChangesPrefix" xml:space="preserve">
+    <value>Unsaved changes: </value>
+  </data>
+  <data name="NoUnsavedChanges" xml:space="preserve">
+    <value>No unsaved changes</value>
+  </data>
+  <data name="LanguageTooltip" xml:space="preserve">
+    <value>Interface language</value>
+  </data>
+  <data name="LanguageTooltipEnglish" xml:space="preserve">
+    <value>Switch to English</value>
+  </data>
+  <data name="LanguageTooltipRussian" xml:space="preserve">
+    <value>Switch to Russian</value>
+  </data>
+  <data name="Template_ArtistTitle" xml:space="preserve">
+    <value>Artist - Title</value>
+  </data>
+  <data name="Template_Title" xml:space="preserve">
+    <value>Title</value>
+  </data>
+  <data name="Template_AlbumTitle" xml:space="preserve">
+    <value>Album - Title</value>
+  </data>
+  <data name="Template_ArtistAlbumTitle" xml:space="preserve">
+    <value>Artist - Album - Title</value>
+  </data>
+  <data name="Template_TrackArtistTitle" xml:space="preserve">
+    <value>01 - Artist - Title</value>
+  </data>
+  <data name="Template_TrackSpaceArtistTitle" xml:space="preserve">
+    <value>01 Artist - Title</value>
+  </data>
+  <data name="Template_TrackTitle" xml:space="preserve">
+    <value>01 - Title</value>
+  </data>
+  <data name="Template_TrackDotTitle" xml:space="preserve">
+    <value>01. Title</value>
+  </data>
+  <data name="SaveDialogTitle" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="SaveDialogHeading" xml:space="preserve">
+    <value>Where to save changes</value>
+  </data>
+  <data name="ModifyOriginals" xml:space="preserve">
+    <value>Modify original files</value>
+  </data>
+  <data name="CreateBackups" xml:space="preserve">
+    <value>Create .bak backup copies</value>
+  </data>
+  <data name="CopyToFolder" xml:space="preserve">
+    <value>Save modified files to another folder</value>
+  </data>
+  <data name="Browse" xml:space="preserve">
+    <value>Browse…</value>
+  </data>
+  <data name="NewFolder" xml:space="preserve">
+    <value>New folder…</value>
+  </data>
+  <data name="ApplyPreviewNames" xml:space="preserve">
+    <value>Apply names from preview</value>
+  </data>
+  <data name="SaveDialogNote" xml:space="preserve">
+    <value>Existing third-party files are not overwritten. All conflicts are checked before writing begins.</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="UnsavedTitle" xml:space="preserve">
+    <value>Unsaved changes</value>
+  </data>
+  <data name="UnsavedHeading" xml:space="preserve">
+    <value>Save changes before exiting?</value>
+  </data>
+  <data name="UnsavedOneFile" xml:space="preserve">
+    <value>One file has unsaved changes.</value>
+  </data>
+  <data name="UnsavedManyFiles" xml:space="preserve">
+    <value>{0} files have unsaved changes.</value>
+  </data>
+  <data name="ExitWithoutSaving" xml:space="preserve">
+    <value>Exit without saving</value>
+  </data>
+  <data name="Status_OpenFolderOrFiles" xml:space="preserve">
+    <value>Open a folder or select files</value>
+  </data>
+  <data name="Status_FilesCount" xml:space="preserve">
+    <value>In list: {0}</value>
+  </data>
+  <data name="Status_AutomationApplied" xml:space="preserve">
+    <value>Automation applied to {0} files</value>
+  </data>
+  <data name="Status_NoChangesToSave" xml:space="preserve">
+    <value>No changes to save</value>
+  </data>
+  <data name="Status_Saving" xml:space="preserve">
+    <value>Saving {0}/{1}: {2}</value>
+  </data>
+  <data name="Status_SavedSummary" xml:space="preserve">
+    <value>Saved: {0}; errors: {1}</value>
+  </data>
+  <data name="Status_SaveFailed" xml:space="preserve">
+    <value>Save failed</value>
+  </data>
+  <data name="Status_PlaylistSaved" xml:space="preserve">
+    <value>Playlist saved: {0}</value>
+  </data>
+  <data name="Status_PlaylistSaveFailed" xml:space="preserve">
+    <value>Failed to save playlist</value>
+  </data>
+  <data name="Status_ScanCancelled" xml:space="preserve">
+    <value>Scan cancelled</value>
+  </data>
+  <data name="Status_ReadFolderFailed" xml:space="preserve">
+    <value>Failed to read folder</value>
+  </data>
+  <data name="Status_LoadCancelled" xml:space="preserve">
+    <value>Load cancelled</value>
+  </data>
+  <data name="Status_LoadFailed" xml:space="preserve">
+    <value>Failed to load files</value>
+  </data>
+  <data name="Status_Loading" xml:space="preserve">
+    <value>Loading {0}/{1}</value>
+  </data>
+  <data name="Status_SearchingFiles" xml:space="preserve">
+    <value>Searching for files…</value>
+  </data>
+  <data name="Status_LoadFailedShort" xml:space="preserve">
+    <value>Failed to load files</value>
+  </data>
+  <data name="Error_SelectOperation" xml:space="preserve">
+    <value>Select at least one operation.</value>
+  </data>
+  <data name="Error_BatchCoverNotSelected" xml:space="preserve">
+    <value>Select a cover image file.</value>
+  </data>
+  <data name="Error_CoverFileTooLarge" xml:space="preserve">
+    <value>Cover file is larger than {0} MB.</value>
+  </data>
+  <data name="Error_CoverUnsupportedFormat" xml:space="preserve">
+    <value>Only JPEG and PNG are supported.</value>
+  </data>
+  <data name="Error_CoverInvalidImage" xml:space="preserve">
+    <value>Could not read the image.</value>
+  </data>
+  <data name="Error_NoFilesSelected" xml:space="preserve">
+    <value>No files selected.
+Select files in the table or choose All tracks in folder.</value>
+  </data>
+  <data name="Error_NoLoadedFiles" xml:space="preserve">
+    <value>No loaded files.</value>
+  </data>
+  <data name="Error_FixFileNames" xml:space="preserve">
+    <value>Fix file name errors before saving.</value>
+  </data>
+  <data name="Error_FileExists" xml:space="preserve">
+    <value>A file with this name already exists.</value>
+  </data>
+  <data name="Error_DuplicateNames" xml:space="preserve">
+    <value>Multiple files would get the same name.</value>
+  </data>
+  <data name="Error_RenameSkippedOne" xml:space="preserve">
+    <value>"{0}": {1} Renaming this file will be skipped.</value>
+  </data>
+  <data name="Error_RenameSkippedMany" xml:space="preserve">
+    <value>Renaming skipped for {0} files due to name conflicts.</value>
+  </data>
+  <data name="Msg_RemoveOne" xml:space="preserve">
+    <value>Remove "{0}" from the list?
+
+Files on disk are not deleted.</value>
+  </data>
+  <data name="Msg_RemoveMany" xml:space="preserve">
+    <value>Remove {0} files from the list?
+
+Files on disk are not deleted.</value>
+  </data>
+  <data name="Msg_RemoveTitle" xml:space="preserve">
+    <value>Remove from list</value>
+  </data>
+  <data name="Msg_EmptyFolder" xml:space="preserve">
+    <value>The folder contains no MP3/FLAC/M4A files.</value>
+  </data>
+  <data name="Msg_EmptyFolderTitle" xml:space="preserve">
+    <value>Open folder</value>
+  </data>
+  <data name="Msg_FixFileNamesBeforeSave" xml:space="preserve">
+    <value>Fix file name errors before saving.</value>
+  </data>
+  <data name="Dialog_SelectFolder" xml:space="preserve">
+    <value>Select a folder with audio files. Files will load after confirmation.</value>
+  </data>
+  <data name="Dialog_SelectFolderTitle" xml:space="preserve">
+    <value>Select folder</value>
+  </data>
+  <data name="Dialog_SelectFiles" xml:space="preserve">
+    <value>Select audio files</value>
+  </data>
+  <data name="Dialog_SelectCover" xml:space="preserve">
+    <value>Select cover image</value>
+  </data>
+  <data name="Dialog_CoverFilter" xml:space="preserve">
+    <value>JPEG and PNG|*.jpg;*.jpeg;*.png</value>
+  </data>
+  <data name="Dialog_SavePlaylist" xml:space="preserve">
+    <value>Save playlist</value>
+  </data>
+  <data name="Dialog_SelectCopyFolder" xml:space="preserve">
+    <value>Select folder for modified copies</value>
+  </data>
+  <data name="Dialog_SelectCopyFolderTitle" xml:space="preserve">
+    <value>Select destination folder</value>
+  </data>
+  <data name="Dialog_SaveTitle" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="Dialog_SelectCopyFolderWarning" xml:space="preserve">
+    <value>Select a folder for copies.</value>
+  </data>
+  <data name="Dialog_SelectNewFolderParent" xml:space="preserve">
+    <value>Choose where to create the folder</value>
+  </data>
+  <data name="Dialog_NewFolderTitle" xml:space="preserve">
+    <value>New folder</value>
+  </data>
+  <data name="Dialog_NewFolderName" xml:space="preserve">
+    <value>Folder name</value>
+  </data>
+  <data name="Dialog_CreateFolder" xml:space="preserve">
+    <value>Create</value>
+  </data>
+  <data name="Error_NewFolderNameEmpty" xml:space="preserve">
+    <value>Enter a folder name.</value>
+  </data>
+  <data name="Error_NewFolderNameInvalid" xml:space="preserve">
+    <value>The folder name contains invalid characters.</value>
+  </data>
+  <data name="Error_NewFolderAlreadyExists" xml:space="preserve">
+    <value>A folder with this name already exists.</value>
+  </data>
+  <data name="Error_CopyFolderMissing" xml:space="preserve">
+    <value>The selected copy destination folder does not exist.</value>
+  </data>
+  <data name="Dialog_PlaylistTitle" xml:space="preserve">
+    <value>Playlist</value>
+  </data>
+  <data name="Filter_AudioFiles" xml:space="preserve">
+    <value>Audio (MP3, FLAC, M4A)|*.mp3;*.flac;*.m4a</value>
+  </data>
+  <data name="FilesSelectedCount" xml:space="preserve">
+    <value>{0} files selected</value>
+  </data>
+  <data name="LoadingProgress" xml:space="preserve">
+    <value>Loading {0}/{1}</value>
+  </data>
+  <data name="EnterNonNegativeInteger" xml:space="preserve">
+    <value>Enter a non-negative integer.</value>
+  </data>
+  <data name="Language_Russian" xml:space="preserve">
+    <value>Русский</value>
+  </data>
+  <data name="Language_English" xml:space="preserve">
+    <value>English</value>
+  </data>
+  <data name="Status_FilesLoadedSummary" xml:space="preserve">
+    <value>Files: {0}; errors: {1}</value>
+  </data>
+  <data name="Status_FilesLoadedCount" xml:space="preserve">
+    <value>Files: {0}</value>
+  </data>
+  <data name="FilesFromSingleFolder" xml:space="preserve">
+    <value>{0} ({1} files)</value>
+  </data>
+</root>

@@ -1,0 +1,39 @@
+## Build results
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+[Ll]ogs/
+
+## Visual Studio / Rider
+.vs/
+*.user
+*.userosscache
+*.suo
+*.sln.docstates
+
+## Test / coverage
+TestResults/
+coverage/
+*.coverage
+*.coveragexml
+
+## Publish / packages
+publish/
+*.nupkg
+*.snupkg
+
+## OS / IDE
+.DS_Store
+Thumbs.db
+.idea/
+
+## NuGet
+*.nuget.props
+*.nuget.targets
+project.lock.json
+project.fragment.lock.json
+
+## Misc
+*.log
+*.tmp
+*.temp

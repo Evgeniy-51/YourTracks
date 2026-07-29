@@ -1,0 +1,19 @@
+﻿<Application x:Class="MetadataEditor.App.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+>
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Themes/AppTheme.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            <!-- Implicit Window style must live here (not in MergedDictionaries) to apply -->
+            <Style TargetType="Window">
+                <Setter Property="Background" Value="{StaticResource Brush.PageBackground}" />
+                <Setter Property="FontFamily" Value="{StaticResource Font.UI}" />
+                <Setter Property="Foreground" Value="{StaticResource Brush.Text}" />
+                <Setter Property="TextOptions.TextFormattingMode" Value="Display" />
+            </Style>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

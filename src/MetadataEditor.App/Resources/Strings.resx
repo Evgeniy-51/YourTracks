@@ -1,0 +1,497 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="OpenFolder" xml:space="preserve">
+    <value>Открыть папку</value>
+  </data>
+  <data name="OpenFiles" xml:space="preserve">
+    <value>Открыть файлы</value>
+  </data>
+  <data name="Undo" xml:space="preserve">
+    <value>Отменить</value>
+  </data>
+  <data name="Exit" xml:space="preserve">
+    <value>Выйти</value>
+  </data>
+  <data name="UndoTooltip" xml:space="preserve">
+    <value>Сбросить все несохранённые изменения во всех файлах списка</value>
+  </data>
+  <data name="SelectAll" xml:space="preserve">
+    <value>Выбрать все</value>
+  </data>
+  <data name="ClearSelection" xml:space="preserve">
+    <value>Снять выбор</value>
+  </data>
+  <data name="DragReorderTooltip" xml:space="preserve">
+    <value>Перетащите строку, чтобы изменить порядок файлов</value>
+  </data>
+  <data name="MoveUp" xml:space="preserve">
+    <value>Переместить выше</value>
+  </data>
+  <data name="MoveDown" xml:space="preserve">
+    <value>Переместить ниже</value>
+  </data>
+  <data name="MoveToStart" xml:space="preserve">
+    <value>В начало</value>
+  </data>
+  <data name="MoveToEnd" xml:space="preserve">
+    <value>В конец</value>
+  </data>
+  <data name="ResetChanges" xml:space="preserve">
+    <value>Сбросить изменения</value>
+  </data>
+  <data name="RemoveFromList" xml:space="preserve">
+    <value>Удалить из списка</value>
+  </data>
+  <data name="ColFile" xml:space="preserve">
+    <value>Файл</value>
+  </data>
+  <data name="ColArtist" xml:space="preserve">
+    <value>Исполнитель</value>
+  </data>
+  <data name="ColTitle" xml:space="preserve">
+    <value>Название</value>
+  </data>
+  <data name="ColTrackNumber" xml:space="preserve">
+    <value>№</value>
+  </data>
+  <data name="TabMetadata" xml:space="preserve">
+    <value>Метаданные</value>
+  </data>
+  <data name="TabAutomation" xml:space="preserve">
+    <value>Автоматизация</value>
+  </data>
+  <data name="TabPlaylist" xml:space="preserve">
+    <value>Плейлист</value>
+  </data>
+  <data name="FileName" xml:space="preserve">
+    <value>Имя файла</value>
+  </data>
+  <data name="Artist" xml:space="preserve">
+    <value>Исполнитель</value>
+  </data>
+  <data name="TrackTitle" xml:space="preserve">
+    <value>Название трека</value>
+  </data>
+  <data name="TrackNumber" xml:space="preserve">
+    <value>Номер трека</value>
+  </data>
+  <data name="Year" xml:space="preserve">
+    <value>Год</value>
+  </data>
+  <data name="ClearTrackNumber" xml:space="preserve">
+    <value>Очистить поле «Номер трека»</value>
+  </data>
+  <data name="Album" xml:space="preserve">
+    <value>Альбом</value>
+  </data>
+  <data name="Cover" xml:space="preserve">
+    <value>Обложка</value>
+  </data>
+  <data name="ReplaceCover" xml:space="preserve">
+    <value>Заменить</value>
+  </data>
+  <data name="RemoveCover" xml:space="preserve">
+    <value>Удалить</value>
+  </data>
+  <data name="AutomationTitle" xml:space="preserve">
+    <value>Автоматизация</value>
+  </data>
+  <data name="AutomationHelp" xml:space="preserve">
+    <value>Выберите нужные треки и поля, которые хотите изменить.</value>
+  </data>
+  <data name="SectionFileName" xml:space="preserve">
+    <value>Имя файла</value>
+  </data>
+  <data name="RenameByTemplate" xml:space="preserve">
+    <value>Переименовать файлы по шаблону</value>
+  </data>
+  <data name="NumberingPrefix" xml:space="preserve">
+    <value>Добавить (изменить) нумерацию как префикс имени</value>
+  </data>
+  <data name="NumberFromTrackField" xml:space="preserve">
+    <value>Нумерация по полю «Номер трека»</value>
+  </data>
+  <data name="NumberingByListOrder" xml:space="preserve">
+    <value>Нумерация по порядку в списке</value>
+  </data>
+  <data name="Preview" xml:space="preserve">
+    <value>Предпросмотр</value>
+  </data>
+  <data name="ColNewFileName" xml:space="preserve">
+    <value>Новое имя</value>
+  </data>
+  <data name="PreviewPlaceholder" xml:space="preserve">
+    <value>Отметьте файлы в таблице или выберите «Ко всем трекам в папке».</value>
+  </data>
+  <data name="SectionMetadata" xml:space="preserve">
+    <value>Метаданные</value>
+  </data>
+  <data name="SectionCover" xml:space="preserve">
+    <value>Обложка</value>
+  </data>
+  <data name="SetCoverArt" xml:space="preserve">
+    <value>Установить обложку</value>
+  </data>
+  <data name="SelectCoverFile" xml:space="preserve">
+    <value>Выбрать файл…</value>
+  </data>
+  <data name="RemoveCoverArt" xml:space="preserve">
+    <value>Удалить обложку</value>
+  </data>
+  <data name="Apply" xml:space="preserve">
+    <value>Применить</value>
+  </data>
+  <data name="ApplyToSelectedTracks" xml:space="preserve">
+    <value>К выбранным трекам</value>
+  </data>
+  <data name="ApplyToAllTracks" xml:space="preserve">
+    <value>Ко всем трекам в папке</value>
+  </data>
+  <data name="PlaylistTitle" xml:space="preserve">
+    <value>Плейлист</value>
+  </data>
+  <data name="PlaylistHelp" xml:space="preserve">
+    <value>Установите нужный порядок треков в списке и сохраните Плейлист.</value>
+  </data>
+  <data name="AbsolutePaths" xml:space="preserve">
+    <value>Абсолютные пути</value>
+  </data>
+  <data name="AbsolutePathsHelp" xml:space="preserve">
+    <value>Без этой опции пути относительные к папке плейлиста. Если файл вне этой папки — сохранится абсолютный путь.</value>
+  </data>
+  <data name="SavePlaylist" xml:space="preserve">
+    <value>Сохранить плейлист…</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Сохранить</value>
+  </data>
+  <data name="UnsavedChangesPrefix" xml:space="preserve">
+    <value>Несохранённые изменения: </value>
+  </data>
+  <data name="NoUnsavedChanges" xml:space="preserve">
+    <value>Нет несохранённых изменений</value>
+  </data>
+  <data name="LanguageTooltip" xml:space="preserve">
+    <value>Язык интерфейса</value>
+  </data>
+  <data name="LanguageTooltipEnglish" xml:space="preserve">
+    <value>Переключить на английский</value>
+  </data>
+  <data name="LanguageTooltipRussian" xml:space="preserve">
+    <value>Переключить на русский</value>
+  </data>
+  <data name="Template_ArtistTitle" xml:space="preserve">
+    <value>Исполнитель - Название</value>
+  </data>
+  <data name="Template_Title" xml:space="preserve">
+    <value>Название</value>
+  </data>
+  <data name="Template_AlbumTitle" xml:space="preserve">
+    <value>Альбом - Название</value>
+  </data>
+  <data name="Template_ArtistAlbumTitle" xml:space="preserve">
+    <value>Исполнитель - Альбом - Название</value>
+  </data>
+  <data name="Template_TrackArtistTitle" xml:space="preserve">
+    <value>01 - Исполнитель - Название</value>
+  </data>
+  <data name="Template_TrackSpaceArtistTitle" xml:space="preserve">
+    <value>01 Исполнитель - Название</value>
+  </data>
+  <data name="Template_TrackTitle" xml:space="preserve">
+    <value>01 - Название</value>
+  </data>
+  <data name="Template_TrackDotTitle" xml:space="preserve">
+    <value>01. Название</value>
+  </data>
+  <data name="SaveDialogTitle" xml:space="preserve">
+    <value>Сохранение</value>
+  </data>
+  <data name="SaveDialogHeading" xml:space="preserve">
+    <value>Куда сохранить изменения</value>
+  </data>
+  <data name="ModifyOriginals" xml:space="preserve">
+    <value>Изменить оригинальные файлы</value>
+  </data>
+  <data name="CreateBackups" xml:space="preserve">
+    <value>Создавать резервные копии .bak</value>
+  </data>
+  <data name="CopyToFolder" xml:space="preserve">
+    <value>Сохранить изменённые файлы в другой папке</value>
+  </data>
+  <data name="Browse" xml:space="preserve">
+    <value>Выбрать…</value>
+  </data>
+  <data name="NewFolder" xml:space="preserve">
+    <value>Создать папку…</value>
+  </data>
+  <data name="ApplyPreviewNames" xml:space="preserve">
+    <value>Применить имена из предпросмотра</value>
+  </data>
+  <data name="SaveDialogNote" xml:space="preserve">
+    <value>Существующие сторонние файлы не перезаписываются. Все конфликты проверяются до начала записи.</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Отмена</value>
+  </data>
+  <data name="UnsavedTitle" xml:space="preserve">
+    <value>Несохранённые изменения</value>
+  </data>
+  <data name="UnsavedHeading" xml:space="preserve">
+    <value>Сохранить изменения перед выходом?</value>
+  </data>
+  <data name="UnsavedOneFile" xml:space="preserve">
+    <value>Один файл содержит несохранённые изменения.</value>
+  </data>
+  <data name="UnsavedManyFiles" xml:space="preserve">
+    <value>Файлов с несохранёнными изменениями: {0}.</value>
+  </data>
+  <data name="ExitWithoutSaving" xml:space="preserve">
+    <value>Выйти без сохранения</value>
+  </data>
+  <data name="Status_OpenFolderOrFiles" xml:space="preserve">
+    <value>Откройте папку или выберите файлы</value>
+  </data>
+  <data name="Status_FilesCount" xml:space="preserve">
+    <value>В списке: {0}</value>
+  </data>
+  <data name="Status_AutomationApplied" xml:space="preserve">
+    <value>Автоматизация применена к файлам: {0}</value>
+  </data>
+  <data name="Status_NoChangesToSave" xml:space="preserve">
+    <value>Нет изменений для сохранения</value>
+  </data>
+  <data name="Status_Saving" xml:space="preserve">
+    <value>Сохранение {0}/{1}: {2}</value>
+  </data>
+  <data name="Status_SavedSummary" xml:space="preserve">
+    <value>Сохранено: {0}; ошибок: {1}</value>
+  </data>
+  <data name="Status_SaveFailed" xml:space="preserve">
+    <value>Сохранение не выполнено</value>
+  </data>
+  <data name="Status_PlaylistSaved" xml:space="preserve">
+    <value>Плейлист сохранён: {0}</value>
+  </data>
+  <data name="Status_PlaylistSaveFailed" xml:space="preserve">
+    <value>Не удалось сохранить плейлист</value>
+  </data>
+  <data name="Status_ScanCancelled" xml:space="preserve">
+    <value>Сканирование отменено</value>
+  </data>
+  <data name="Status_ReadFolderFailed" xml:space="preserve">
+    <value>Не удалось прочитать папку</value>
+  </data>
+  <data name="Status_LoadCancelled" xml:space="preserve">
+    <value>Загрузка отменена</value>
+  </data>
+  <data name="Status_LoadFailed" xml:space="preserve">
+    <value>Не удалось загрузить файлы</value>
+  </data>
+  <data name="Status_Loading" xml:space="preserve">
+    <value>Загрузка {0}/{1}</value>
+  </data>
+  <data name="Status_SearchingFiles" xml:space="preserve">
+    <value>Поиск файлов…</value>
+  </data>
+  <data name="Status_LoadFailedShort" xml:space="preserve">
+    <value>Не удалось загрузить файлы</value>
+  </data>
+  <data name="Error_SelectOperation" xml:space="preserve">
+    <value>Отметьте хотя бы одну операцию.</value>
+  </data>
+  <data name="Error_BatchCoverNotSelected" xml:space="preserve">
+    <value>Выберите файл обложки.</value>
+  </data>
+  <data name="Error_CoverFileTooLarge" xml:space="preserve">
+    <value>Файл обложки больше {0} МБ.</value>
+  </data>
+  <data name="Error_CoverUnsupportedFormat" xml:space="preserve">
+    <value>Допустимы только JPEG и PNG.</value>
+  </data>
+  <data name="Error_CoverInvalidImage" xml:space="preserve">
+    <value>Не удалось прочитать изображение.</value>
+  </data>
+  <data name="Error_NoFilesSelected" xml:space="preserve">
+    <value>Не выбран ни один файл.
+Отметьте файлы в таблице или выберите «Ко всем трекам в папке».</value>
+  </data>
+  <data name="Error_NoLoadedFiles" xml:space="preserve">
+    <value>Нет загруженных файлов.</value>
+  </data>
+  <data name="Error_FixFileNames" xml:space="preserve">
+    <value>Исправьте ошибки в именах файлов перед сохранением.</value>
+  </data>
+  <data name="Error_FileExists" xml:space="preserve">
+    <value>Файл с таким именем уже существует.</value>
+  </data>
+  <data name="Error_DuplicateNames" xml:space="preserve">
+    <value>Несколько файлов получают одинаковое имя.</value>
+  </data>
+  <data name="Error_RenameSkippedOne" xml:space="preserve">
+    <value>«{0}»: {1} Переименование этого файла будет пропущено.</value>
+  </data>
+  <data name="Error_RenameSkippedMany" xml:space="preserve">
+    <value>Переименование пропущено для {0} файлов из‑за конфликта имён.</value>
+  </data>
+  <data name="Msg_RemoveOne" xml:space="preserve">
+    <value>Удалить «{0}» из списка?
+
+Файлы на диске не удаляются.</value>
+  </data>
+  <data name="Msg_RemoveMany" xml:space="preserve">
+    <value>Удалить {0} файлов из списка?
+
+Файлы на диске не удаляются.</value>
+  </data>
+  <data name="Msg_RemoveTitle" xml:space="preserve">
+    <value>Удаление из списка</value>
+  </data>
+  <data name="Msg_EmptyFolder" xml:space="preserve">
+    <value>В папке нет MP3/FLAC/M4A.</value>
+  </data>
+  <data name="Msg_EmptyFolderTitle" xml:space="preserve">
+    <value>Открыть папку</value>
+  </data>
+  <data name="Msg_FixFileNamesBeforeSave" xml:space="preserve">
+    <value>Исправьте ошибки в именах файлов перед сохранением.</value>
+  </data>
+  <data name="Dialog_SelectFolder" xml:space="preserve">
+    <value>Выберите папку с аудиофайлами. Файлы загрузятся после подтверждения.</value>
+  </data>
+  <data name="Dialog_SelectFolderTitle" xml:space="preserve">
+    <value>Выбор папки</value>
+  </data>
+  <data name="Dialog_SelectFiles" xml:space="preserve">
+    <value>Выберите аудиофайлы</value>
+  </data>
+  <data name="Dialog_SelectCover" xml:space="preserve">
+    <value>Выберите обложку</value>
+  </data>
+  <data name="Dialog_CoverFilter" xml:space="preserve">
+    <value>JPEG и PNG|*.jpg;*.jpeg;*.png</value>
+  </data>
+  <data name="Dialog_SavePlaylist" xml:space="preserve">
+    <value>Сохранить плейлист</value>
+  </data>
+  <data name="Dialog_SelectCopyFolder" xml:space="preserve">
+    <value>Выберите папку для изменённых копий</value>
+  </data>
+  <data name="Dialog_SelectCopyFolderTitle" xml:space="preserve">
+    <value>Выбор папки для копий</value>
+  </data>
+  <data name="Dialog_SaveTitle" xml:space="preserve">
+    <value>Сохранение</value>
+  </data>
+  <data name="Dialog_SelectCopyFolderWarning" xml:space="preserve">
+    <value>Выберите папку для копий.</value>
+  </data>
+  <data name="Dialog_SelectNewFolderParent" xml:space="preserve">
+    <value>Выберите, где создать папку</value>
+  </data>
+  <data name="Dialog_NewFolderTitle" xml:space="preserve">
+    <value>Новая папка</value>
+  </data>
+  <data name="Dialog_NewFolderName" xml:space="preserve">
+    <value>Имя папки</value>
+  </data>
+  <data name="Dialog_CreateFolder" xml:space="preserve">
+    <value>Создать</value>
+  </data>
+  <data name="Error_NewFolderNameEmpty" xml:space="preserve">
+    <value>Введите имя папки.</value>
+  </data>
+  <data name="Error_NewFolderNameInvalid" xml:space="preserve">
+    <value>Имя папки содержит недопустимые символы.</value>
+  </data>
+  <data name="Error_NewFolderAlreadyExists" xml:space="preserve">
+    <value>Папка с таким именем уже существует.</value>
+  </data>
+  <data name="Error_CopyFolderMissing" xml:space="preserve">
+    <value>Указанная папка для копий не существует.</value>
+  </data>
+  <data name="Dialog_PlaylistTitle" xml:space="preserve">
+    <value>Плейлист</value>
+  </data>
+  <data name="Filter_AudioFiles" xml:space="preserve">
+    <value>Аудио (MP3, FLAC, M4A)|*.mp3;*.flac;*.m4a</value>
+  </data>
+  <data name="FilesSelectedCount" xml:space="preserve">
+    <value>Выбрано файлов: {0}</value>
+  </data>
+  <data name="LoadingProgress" xml:space="preserve">
+    <value>Загрузка {0}/{1}</value>
+  </data>
+  <data name="EnterNonNegativeInteger" xml:space="preserve">
+    <value>Введите целое число ≥ 0.</value>
+  </data>
+  <data name="Language_Russian" xml:space="preserve">
+    <value>Русский</value>
+  </data>
+  <data name="Language_English" xml:space="preserve">
+    <value>English</value>
+  </data>
+  <data name="Status_FilesLoadedSummary" xml:space="preserve">
+    <value>Файлов: {0}; ошибок: {1}</value>
+  </data>
+  <data name="Status_FilesLoadedCount" xml:space="preserve">
+    <value>Файлов: {0}</value>
+  </data>
+  <data name="FilesFromSingleFolder" xml:space="preserve">
+    <value>{0} ({1} файлов)</value>
+  </data>
+</root>
