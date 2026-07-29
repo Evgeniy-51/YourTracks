@@ -1282,6 +1282,7 @@ public partial class MainViewModel(
     private void FinishLoad(int errorCount, string finalStatus)
     {
         RefreshAutomationFields();
+        UpdateRenamePreview();
         StatusText = Files.Count == 0 && errorCount > 0
             ? Loc.T("Status_LoadFailedShort")
             : finalStatus;
